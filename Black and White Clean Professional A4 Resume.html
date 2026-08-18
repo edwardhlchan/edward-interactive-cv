@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Resume of Edward Chan, IT Operations, Cybersecurity, and Automation Assistant.">
+    <title>Edward Chan — Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #171e1c;
+        --muted-ink: #53605a;
+        --rule: #9aa39e;
+        --paper: #fff;
+        --screen: #eef0ee;
+        --page-width: 210mm;
+        --page-height: 297mm;
+        --page-padding-x: 14mm;
+        --page-padding-y: 10mm;
+        --body-size: 9.1pt;
+        --body-leading: 1.3;
+        --space-intra: 3px;
+        --space-entry: 6px;
+        --space-section: 11px;
+        --space-heading: 4px;
+      }
+
+      * { box-sizing: border-box; }
+      html { background: var(--screen); }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--screen);
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        font-size: var(--body-size);
+        line-height: var(--body-leading);
+      }
+      a { color: inherit; text-decoration: none; }
+      a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: .14em; }
+      .resume-page {
+        width: var(--page-width);
+        min-height: var(--page-height);
+        margin: 10mm auto;
+        padding: var(--page-padding-y) var(--page-padding-x);
+        background: var(--paper);
+      }
+      .resume-header {
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .resume-header h1 {
+        margin: 0;
+        font-size: 21pt;
+        line-height: 1.05;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+      .headline {
+        margin: 4px 0 8px;
+        font-size: 10.5pt;
+        line-height: var(--body-leading);
+      }
+      .contact-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 8px;
+        margin: 0;
+        color: var(--muted-ink);
+        font-size: var(--body-size);
+        font-style: normal;
+      }
+      .contact-list a:not(:last-child)::after {
+        content: '|';
+        margin-left: 8px;
+        color: var(--rule);
+      }
+      .resume-section { margin-top: var(--space-section); }
+      .resume-section h2 {
+        margin: 0 0 var(--space-heading);
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--rule);
+        font-size: 11pt;
+        line-height: 1.1;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+      .resume-section > p { margin: 0; }
+      .education-entry {
+        display: grid;
+        grid-template-columns: 52mm minmax(0, 1fr);
+        gap: 10px;
+        margin-top: var(--space-entry);
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .entry-meta,
+      .entry-content,
+      .entry-meta p,
+      .entry-content p { margin: 0; }
+      .entry-meta { color: var(--muted-ink); }
+      .entry-meta .entry-date { color: var(--ink); font-weight: 700; }
+      .entry-content h3,
+      .project-entry h3 {
+        margin: 0;
+        font-size: var(--body-size);
+        line-height: var(--body-leading);
+        font-weight: 700;
+      }
+      .entry-content p + p { margin-top: var(--space-intra); }
+      .project-entry {
+        margin-top: var(--space-entry);
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .project-entry ul,
+      .achievements ul {
+        margin: var(--space-intra) 0 0;
+        padding-left: 18px;
+      }
+      .project-entry li,
+      .achievements li { margin: 0; }
+      .project-entry li + li,
+      .achievements li + li { margin-top: var(--space-intra); }
+      .skills-list {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .skills-list li { margin: 0; }
+      .skills-list li + li { margin-top: var(--space-intra); }
+      .portfolio {
+        margin: var(--space-intra) 0 0;
+        color: var(--muted-ink);
+      }
+      @media screen and (max-width: 720px) {
+        html, body { background: var(--paper); }
+        .resume-page {
+          width: 100%;
+          min-height: 0;
+          margin: 0;
+          padding: 8mm 6mm;
+        }
+        .education-entry { grid-template-columns: 1fr; gap: var(--space-intra); }
+        .contact-list { row-gap: var(--space-intra); }
+      }
+      @page { size: A4; margin: 0; }
+      @media print {
+        html, body {
+          width: var(--page-width);
+          height: var(--page-height);
+          background: var(--paper);
+        }
+        .resume-page {
+          width: var(--page-width);
+          min-height: var(--page-height);
+          margin: 0;
+          padding: var(--page-padding-y) var(--page-padding-x);
+        }
+        a { text-decoration: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-page">
+      <header class="resume-header">
+        <h1>Edward Chan</h1>
+        <p class="headline">IT Operations, Cybersecurity & Automation Assistant</p>
+        <address class="contact-list">
+          <a href="tel:+85255117745">+852 55117745</a>
+          <a href="mailto:edhlchan@mzki.moe" >edhlchan@mzki.moe</a>
+          <a href="https://github.com/lmaodick1239">github.com/lmaodick1239</a>
+        </address>
+      </header>
+
+      <main>
+        <section class="resume-section" aria-labelledby="summary-heading">
+          <h2 id="summary-heading">Professional Summary</h2>
+          <p>Computer Science and IT student with hands-on experience in SIEM-based event-log analysis, network fundamentals, Python automation, and application development. Analyzed raw event logs in Splunk Boss of the SOC (BOTS), finishing in the Top 10 in 2025. Also developed Python and C# tools, PyQt desktop applications, and serverless functions, bringing a practical programming and automation mindset to IT operations and security problem-solving.</p>
+        </section>
+
+        <section class="resume-section" aria-labelledby="education-heading">
+          <h2 id="education-heading">Education</h2>
+
+          <article class="education-entry">
+            <div class="entry-meta">
+              <p class="entry-date">2026–2028</p>
+              <p>Hong Kong Baptist University - School of Continuing Education</p>
+            </div>
+            <div class="entry-content">
+              <h3>Higher Diploma in Data Science (CLAP-TECH Pathway)</h3>
+              <p>Expected Start Date: 2026/09/01</p>
+            </div>
+          </article>
+
+          <article class="education-entry">
+            <div class="entry-meta">
+              <p class="entry-date">2024–2025</p>
+              <p>Hong Kong Baptist University - School of Continuing Education</p>
+            </div>
+            <div class="entry-content">
+              <h3>Tech Basics (CLAP-TECH Pathway)</h3>
+              <p>Attained with Distinction II.</p>
+              <p>Completed IBM P-TECH-aligned coursework in Python data programming, networking fundamentals, and data analysis using Pandas and Excel.</p>
+              <p>Selected for industry immersion at Equinix Data Center and participation in the Splunk BOTS competition.</p>
+            </div>
+          </article>
+
+          <article class="education-entry">
+            <div class="entry-meta">
+              <p class="entry-date">2020–2026</p>
+              <p>Lai King Catholic Secondary School</p>
+            </div>
+            <div class="entry-content">
+              <h3>Secondary Education</h3>
+              <p>Key Results: Level 5 in English Language, Level 5 in Information & Communication Technology (ICT), Level 3 in Mathematics.</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="resume-section" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Projects</h2>
+
+          <article class="project-entry">
+            <h3>Security Log Analysis & Incident Response Simulation | Splunk BOTS</h3>
+            <ul>
+              <li>Analyzed raw event logs in a competitive SIEM environment to investigate simulated enterprise security incidents.</li>
+              <li>Executed incident-response workflows and reconstructed multi-stage attack scenarios.</li>
+              <li>Achieved a Top 10 finish in Splunk Boss of the SOC (BOTS), 2025.</li>
+            </ul>
+          </article>
+
+          <article class="project-entry">
+            <h3>Automated Data Parsing Desktop Application | Python, PyQt</h3>
+            <ul>
+              <li>Built a PyQt desktop application to automate data parsing, extraction, filtering, and formatting.</li>
+              <li>Applied Python data-programming techniques to reduce repetitive manual processing steps.</li>
+            </ul>
+          </article>
+
+          <article class="project-entry">
+            <h3>Real-Time Input-Translation Engine | C#</h3>
+            <ul>
+              <li>Developed an engine to remap and emulate controller input signals in real time.</li>
+              <li>Applied AI-assisted development workflows to support code optimization and logic design.</li>
+            </ul>
+          </article>
+
+          <article class="project-entry">
+            <h3>Serverless Web Functions | JavaScript, Cloudflare Workers</h3>
+            <ul>
+              <li>Implemented and deployed serverless web functions using Cloudflare Workers.</li>
+              <li>Applied object-oriented programming principles while developing utility and automation features.</li>
+            </ul>
+            <p class="portfolio">Portfolio page: <a href="https://www.mzki.moe/projects/">https://www.mzki.moe/projects/</a></p>
+          </article>
+        </section>
+
+        <section class="resume-section" aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Skills</h2>
+          <ul class="skills-list">
+            <li><strong>Cybersecurity & IT Operations:</strong> Splunk SIEM, event-log analysis, network fundamentals</li>
+            <li><strong>Programming:</strong> Python, C#, JavaScript</li>
+            <li><strong>Data & Automation:</strong> PyQt, Pandas, Excel, data parsing, data formatting</li>
+          </ul>
+        </section>
+
+        <section class="resume-section achievements" aria-labelledby="achievements-heading">
+          <h2 id="achievements-heading">Achievements</h2>
+          <ul>
+            <li>Top 10 Finisher — Splunk Boss of the SOC (BOTS) (2025)</li>
+            <li>Distinction - Canadian Computing Competition (2025)</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
