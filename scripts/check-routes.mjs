@@ -1,10 +1,13 @@
 import http from "node:http";
+import https from "node:https";
 
 const baseUrl = process.argv[2] ?? "http://localhost:8787";
 
 function requestText(path, headers = {}) {
   return new Promise((resolve, reject) => {
-    const request = http.request(new URL(path, baseUrl), { headers }, (response) => {
+    const url = new URL(path, baseUrl);
+    const requestClient = url.protocol === "https:" ? https : http;
+    const request = requestClient.request(url, { headers }, (response) => {
       let body = "";
       response.setEncoding("utf8");
       response.on("data", (chunk) => { body += chunk; });

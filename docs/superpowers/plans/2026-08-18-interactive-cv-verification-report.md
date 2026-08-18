@@ -45,4 +45,12 @@ Workers Static Assets applies SPA fallback to navigation requests. The route ver
 
 ## Deployment status
 
-Production deployment was intentionally not run. It requires user-provided Cloudflare authentication and explicit deployment approval. No Cloudflare credentials, account IDs, custom domains, D1 binding, API, calculator route, or separate DSE application exists in this project.
+Production deployment completed successfully through Wrangler OAuth.
+
+- Live URL: `https://edward-interactive-cv.despacito777x.workers.dev`
+- Worker name: `edward-interactive-cv`
+- Cloudflare account: `Despacito777x@gmail.com's Account`
+- Version ID: `c97e3287-9b3c-4b9e-bb43-fc6dbd0bbbc8`
+- Live route verification: Pass for `/` and `/cv`; `/dse` and `/dse-calculator/` do not serve a calculator application.
+
+No Cloudflare credentials, account IDs, custom domains, D1 binding, API, calculator route, or separate DSE application exists in the repository configuration.
