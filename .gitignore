@@ -7,3 +7,8 @@ coverage/
 .env
 .env.*
 !.env.example
+*.jpeg
+*.pdf
+Black and White Clean Professional A4 Resume.html
+docs/*
+Black and White Clean Professional A4 Resume_files/*
