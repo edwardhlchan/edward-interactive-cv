@@ -1,4 +1,5 @@
 import type { Profile } from "../data/profile";
+import { TerminalPanel } from "../features/terminal/TerminalPanel";
 import { AchievementList } from "./AchievementList";
 import { EducationList } from "./EducationList";
 import { PrintControls } from "./PrintControls";
@@ -51,8 +52,15 @@ export function AppShell({ profile }: { profile: Profile }) {
             </ResumeSection>
           </main>
           <footer className="site-footer">
-            <div>Edward Chan / interactive CV</div>
-            <div>last updated / 2026</div>
+            <TerminalPanel
+              onScrollToSection={scrollToSection}
+              onFocusContact={() => document.getElementById("contact-links")?.focus()}
+              onPrint={() => window.print()}
+            />
+            <div className="site-footer__meta">
+              <span>Edward Chan / interactive CV</span>
+              <span>last updated / 2026</span>
+            </div>
           </footer>
         </div>
       </div>
