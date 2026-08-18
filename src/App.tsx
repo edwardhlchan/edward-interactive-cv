@@ -1,7 +1,9 @@
+import { profile } from "./data/profile";
+
 export default function App() {
   return (
     <main aria-label="Interactive CV" id="main-content">
-      Interactive CV
+      {profile.identity.name}
     </main>
   );
 }

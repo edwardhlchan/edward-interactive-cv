@@ -1,0 +1,137 @@
+export type ContactLink = {
+  label: string;
+  href: string;
+  kind: "phone" | "email" | "linkedin" | "github";
+};
+
+export type EducationEntry = {
+  title: string;
+  provider: string;
+  dates: string;
+  details: string[];
+};
+
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
+export type Project = {
+  title: string;
+  technologies: string[];
+  details: string[];
+  links: ProjectLink[];
+};
+
+export type SkillGroup = {
+  category: string;
+  items: string[];
+};
+
+export type Profile = {
+  identity: {
+    name: string;
+    role: string;
+    aspiration: string;
+    summary: string;
+  };
+  contact: ContactLink[];
+  education: EducationEntry[];
+  projects: Project[];
+  skills: SkillGroup[];
+  achievements: string[];
+};
+
+export const profile: Profile = {
+  identity: {
+    name: "Edward Chan",
+    role: "Information Technology Student",
+    aspiration: "Aspiring Technology Operations & Cybersecurity Professional",
+    summary:
+      "Information Technology and Data Science student with a strong foundation in Python automation, application development, and networking. Demonstrated practical capability in cybersecurity through Splunk Boss of the SOC (BOTS), an industry-practitioner competition (Top 10 Finalist, Hong Kong), where I analyzed raw event logs to solve blue-team capture-the-flag (CTF) challenges in a simulated SIEM environment. Passionate about building internal utilities, PyQt data-parsing applications, and full-stack web applications to bring an automation-focused mindset to IT operations and problem-solving.",
+  },
+  contact: [
+    { label: "+852 5511 7745", href: "tel:+85255117745", kind: "phone" },
+    { label: "contact@edwardchan.dev", href: "mailto:contact@edwardchan.dev", kind: "email" },
+    { label: "linkedin.com/in/edhlchan", href: "https://linkedin.com/in/edhlchan", kind: "linkedin" },
+    { label: "github.com/edhlchan", href: "https://github.com/edhlchan", kind: "github" },
+  ],
+  education: [
+    {
+      title: "Higher Diploma in Data Science",
+      provider: "CLAP-TECH Pathway — Hong Kong Baptist University",
+      dates: "Expected start: 2026/09",
+      details: [
+        "A Jockey Club Multiple Pathways Initiative offered by Hong Kong Baptist University and co-designed by IBM.",
+        "Focus on industry-driven data analytics, AI applications, and practical programming to solve real-world operational challenges.",
+      ],
+    },
+    {
+      title: "Applied Learning (ApL) in Tech Basics (HKDSE)",
+      provider: "CLAP-TECH Pathway",
+      dates: "2024 – 2025",
+      details: [
+        "Top performer with Grade: Distinction II, awarded to the top 4% of students.",
+        "Developed new-collar IT competencies covering Python development, web application architecture, cybersecurity operations, and IT project management.",
+        "Selected for industry immersion at Equinix Data Center and ranked Top 10 in Hong Kong in Splunk BOTS.",
+      ],
+    },
+    {
+      title: "Hong Kong Diploma of Secondary Education (HKDSE)",
+      provider: "Lai King Catholic Secondary School",
+      dates: "2020 – 2026",
+      details: [
+        "Achieved Level 5 in Information & Communication Technology (ICT) and Level 5 in English Language.",
+      ],
+    },
+  ],
+  projects: [
+    {
+      title: "Full-Stack Web Apps & Digital Portfolio | Cloudflare Workers, D1, JS",
+      technologies: ["Cloudflare Workers", "D1", "JavaScript"],
+      details: [
+        "Developed a full-stack web app pairing a JavaScript frontend with a Cloudflare Workers API and a D1 (SQLite) database for score submission, aggregate statistics, and percentile ranking.",
+        "Engineered and deployed a responsive, cloud-hosted digital CV with a scriptable terminal interface.",
+      ],
+      links: [{ label: "Interactive CV", href: "https://edward-portfolio.runs-as-a-cloudflare.workers.dev/cv" }],
+    },
+    {
+      title: "Security Log Analysis & Incident Response Simulation | Splunk BOTS",
+      technologies: ["Splunk", "SIEM", "CTF"],
+      details: [
+        "Analyzed raw event logs in a competitive SIEM environment to investigate simulated enterprise security incidents.",
+        "Solved blue-team CTF challenges by querying logs to track threat actor activities and identify indicators of compromise.",
+        "Ranked as a Top 10 Finalist in Splunk Boss of the SOC (BOTS) 2025.",
+      ],
+      links: [],
+    },
+    {
+      title: "Automated Data Parsing Desktop Application | Python, PyQt",
+      technologies: ["Python", "PyQt", "Pandas"],
+      details: [
+        "Built a PyQt desktop application to automate data parsing, extraction, filtering, and formatting.",
+        "Applied Pandas and Python scripting to reduce repetitive manual processing steps.",
+      ],
+      links: [],
+    },
+    {
+      title: "Real-Time Input-Translation Engine | C#",
+      technologies: ["C#"],
+      details: [
+        "Developed an engine to remap and emulate controller input signals in real time.",
+        "Applied AI-assisted development workflows to support code optimization and logic design.",
+      ],
+      links: [],
+    },
+  ],
+  skills: [
+    { category: "Programming", items: ["Python", "C#", "JavaScript (Full-Stack)", "HTML/CSS"] },
+    { category: "Cybersecurity & IT Ops", items: ["SIEM (Splunk)", "Threat Hunting (CTF)", "Log Analysis", "Networking"] },
+    { category: "Tools & Frameworks", items: ["Cloudflare Workers", "Cloudflare D1 (SQLite)", "PyQt", "Pandas", "Git"] },
+    { category: "Modern Workflows", items: ["AI-Assisted Development", "Serverless Deployment"] },
+  ],
+  achievements: [
+    "Top 10 Finalist – Splunk Boss of the SOC (BOTS) Hong Kong (2025)",
+    "Distinction Award – Canadian Computing Competition (2025)",
+  ],
+};
