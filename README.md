@@ -1,45 +1,21 @@
-# Edward Chan — Interactive CV
+# Edward Chan
 
-Vite + React + TypeScript interactive CV served through Cloudflare Workers Static Assets.
+I am interested in the intersection of IT operations, cybersecurity, data tooling, and automation. I focus on practical systems and workflows that make technical work more reliable, understandable, and efficient.
 
-## Routes
+## Technical Skills
 
-- `/` — primary interactive CV.
-- `/cv` — compatibility alias rendering the same CV.
-- `/dse` and `/dse-calculator/` — intentionally excluded; the DSE calculator will be hosted separately.
+- **Programming:** Python, C#, JavaScript, HTML/CSS
+- **Cybersecurity & IT Operations:** SIEM (Splunk), threat hunting (CTF), log analysis, networking
+- **Data, Tools & Cloud:** PyQt, Pandas, Excel, data parsing, data formatting, Cloudflare Workers, Cloudflare D1 (SQLite), Git
+- **Modern Workflows:** AI-assisted development, serverless deployment
 
-## Local development
+## Professional Interests
 
-```bash
-npm install
-npm run dev
-```
+- Practical automation and developer tooling
+- Security operations, log analysis, and networking
+- Data workflows, parsing, and formatting
 
-For the browser app, open the Vite URL printed by the command. To preview the actual Worker/static-assets integration:
+## Beyond Code
 
-```bash
-npm run worker:dev
-```
-
-The Worker preview normally listens on `http://localhost:8787`.
-
-## Verification
-
-```bash
-npm run check:content
-npm run check:css
-npm run test:run
-npm run build
-npm run check:routes -- http://localhost:8787
-npx wrangler deploy --dry-run
-```
-
-`check:routes` sends browser-navigation headers because Cloudflare Workers Static Assets applies `not_found_handling = "single-page-application"` to navigation requests. It verifies `/` and `/cv` and confirms the excluded DSE paths do not serve a calculator application.
-
-## Deployment
-
-```bash
-npm run deploy
-```
-
-Deployment requires local Wrangler authentication and explicit approval. No credentials, tokens, account IDs, routes, or custom-domain settings are stored in this repository. The current project uses the Worker name `edward-interactive-cv` and does not configure D1, KV, APIs, authentication, or server-side persistence.
+- Technology exploration
+- Building automation tools
