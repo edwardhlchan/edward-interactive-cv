@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "worker:dev": "npm run build && wrangler dev --local",
     "deploy": "npm run build && wrangler deploy",
-    "check:css": "node scripts/check-css-contract.mjs"
+    "check:css": "node scripts/check-css-contract.mjs",
+    "check:content": "node scripts/verify-content.mjs",
+    "check:routes": "node scripts/check-routes.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
