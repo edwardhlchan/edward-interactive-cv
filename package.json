@@ -11,7 +11,8 @@
     "test:run": "vitest run",
     "preview": "vite preview",
     "worker:dev": "npm run build && wrangler dev --local",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "check:css": "node scripts/check-css-contract.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
