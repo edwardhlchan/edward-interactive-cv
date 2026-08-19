@@ -53,13 +53,13 @@ export const profile: Profile = {
   contact: [
     { label: "+852 5511 7745", href: "tel:+85255117745", kind: "phone" },
     { label: "edward.hl.chan@gmail.com", href: "mailto:edward.hl.chan@gmail.com", kind: "email" },
-    { label: "https://www.linkedin.com/in/edward-chan-hl/", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
+    // { label: "https://www.linkedin.com/in/edward-chan-hl/", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
     { label: "https://github.com/edwardhlchan", href: "https://github.com/edwardhlchan", kind: "github" },
   ],
   education: [
     {
-      title: "Higher Diploma in Data Science",
-      provider: "CLAP-TECH Pathway — Hong Kong Baptist University",
+      title: "Higher Diploma in Data Science (CLAP-TECH Pathway)",
+      provider: "Hong Kong Baptist University — School of Continuing Education",
       dates: "Expected start: 2026/09",
       details: [
         "A Jockey Club Multiple Pathways Initiative offered by Hong Kong Baptist University and co-designed by IBM.",
@@ -67,8 +67,8 @@ export const profile: Profile = {
       ],
     },
     {
-      title: "Applied Learning (ApL) in Tech Basics (HKDSE)",
-      provider: "CLAP-TECH Pathway",
+      title: "Applied Learning (ApL) in Tech Basics (CLAP-TECH Pathway)",
+      provider: "Hong Kong Baptist University — School of Continuing Education",
       dates: "2024 – 2025",
       details: [
         "Top performer with Grade: Attained with Distinction II, awarded to the top 4% of students.",
@@ -95,8 +95,8 @@ export const profile: Profile = {
       ],
       links: [
         // { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
-        {label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/"},
-        {label: "Math Rush", href: "https://www.mzki.moe/projects/maf/"}
+        { label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/" },
+        { label: "Math Rush", href: "https://www.mzki.moe/projects/maf/" },
       ],
     },
     {

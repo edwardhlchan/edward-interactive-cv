@@ -19,7 +19,7 @@ export function AppShell({ profile }: { profile: Profile }) {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="site-chrome print-only-screen">
         <span>edward-ops / cv</span>
-        <span>build 01.26 <i aria-hidden="true">●</i> static edge</span>
+        {/* <span>build 01.26 <i aria-hidden="true">●</i> static edge</span> */}
       </div>
       <div className="layout-grid">
         <aside className="navigation-rail print-only-screen">

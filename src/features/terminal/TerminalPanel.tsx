@@ -31,8 +31,8 @@ export function TerminalPanel({ onScrollToSection, onFocusContact, onPrint }: Te
   return (
     <section className="terminal-panel" aria-label="Interactive terminal">
       <div className="terminal-panel__header">
-        <span>terminal / local command palette</span>
-        <span>safe mode</span>
+        <span>terminal</span>
+        {/* <span>safe mode</span> */}
       </div>
       <div className="terminal-panel__history" role="log" aria-live="polite">
         {history.map((line, index) => <div key={`${line}-${index}`}>{line}</div>)}

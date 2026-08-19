@@ -5,14 +5,14 @@ export function ProfileHeader({ profile }: { profile: Profile }) {
     <header className="profile-header">
       <div className="profile-header__topline">
         <span className="eyebrow">Interactive CV / profile dossier</span>
-        <span className="availability"><span className="status-dot" aria-hidden="true" /> open to opportunity</span>
+        {/* <span className="availability"><span className="status-dot" aria-hidden="true" /> open to opportunity</span> */}
       </div>
       <div className="profile-header__identity">
-        <p className="profile-header__index" aria-hidden="true">EC / 01</p>
+        {/* <p className="profile-header__index" aria-hidden="true">EC / 01</p> */}
         <div>
           <h1>{profile.identity.name}</h1>
           <p className="profile-header__role">{profile.identity.role}</p>
-          <p className="profile-header__aspiration">{profile.identity.aspiration}</p>
+          {/* <p className="profile-header__aspiration">{profile.identity.aspiration}</p> */}
         </div>
       </div>
       <address className="contact-links" id="contact-links" tabIndex={-1}>
