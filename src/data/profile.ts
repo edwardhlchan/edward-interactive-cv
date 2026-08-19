@@ -93,7 +93,8 @@ export const profile: Profile = {
         "Developed a full-stack web app pairing a JavaScript frontend with a Cloudflare Workers API and a D1 (SQLite) database for score submission, aggregate statistics, and percentile ranking.",
         "Engineered and deployed a responsive, cloud-hosted digital CV with a scriptable terminal interface.",
       ],
-      links: [{ label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
+      links: [
+        // { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
         {label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/"},
         {label: "Math Rush", href: "https://www.mzki.moe/projects/maf/"}
       ],
