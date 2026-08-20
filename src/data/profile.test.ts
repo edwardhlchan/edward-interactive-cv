@@ -10,7 +10,6 @@ describe("profile", () => {
       expect.arrayContaining([
         expect.objectContaining({ href: "tel:+85255117745" }),
         expect.objectContaining({ href: "mailto:edward.hl.chan@gmail.com" }),
-        expect.objectContaining({ href: "https://www.linkedin.com/in/edward-chan-hl/" }),
         expect.objectContaining({ href: "https://github.com/edwardhlchan" }),
       ]),
     );
@@ -28,9 +27,9 @@ describe("profile", () => {
     );
     expect(profile.projects[0].links).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ href: "https://edward-interactive-cv.despacito777x.workers.dev/" }),
         expect.objectContaining({ href: "https://www.mzki.moe/projects/dma/" }),
         expect.objectContaining({ href: "https://www.mzki.moe/projects/maf/" }),
+        expect.objectContaining({ href: "https://github.com/edwardhlchan" }),
       ]),
     );
   });

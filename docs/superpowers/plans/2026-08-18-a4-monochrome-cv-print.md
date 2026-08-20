@@ -5,8 +5,8 @@
 **Goal:** Make the existing interactive portfolio export as a complete, selectable, black-and-white A4 portrait PDF in no more than two pages while hiding interactive-only UI during print.
 
 **Architecture:** Keep one shared semantic React document driven by [`profile`](../../../src/data/profile.ts:45). Add a focused print stylesheet and only the minimal class hooks needed to distinguish printable CV content from navigation, terminal, status chrome, and controls; do not create a duplicate print component or alter the screen layout.
+**Tech Stack:** React 19, TypeScript, Vite, CSS [`@page`](../../../src/styles/global.css:1), browser Print to PDF, Vitest where DOM behavior can be tested.
 
-**Tech Stack:** React 19, TypeScript, Vite, CSS [`@page`](../../../src/styles/print.css:1), browser Print to PDF, Vitest where DOM behavior can be tested.
 
 ## Global Constraints
 
@@ -25,7 +25,7 @@
 ## File Map
 
 - Modify: [`src/components/AppShell.tsx`](../../../src/components/AppShell.tsx:12) — add stable semantic print-targeting hooks while preserving the existing component structure and screen behavior.
-- Create or modify: [`src/styles/print.css`](../../../src/styles/print.css:1) — define A4 page geometry, monochrome print overrides, visibility rules, and content-aware pagination.
+- Create or modify: [`src/styles/global.css`](../../../src/styles/global.css:1) — define A4 page geometry, monochrome print overrides, visibility rules, and content-aware pagination.
 - Modify: the existing stylesheet entry point that is imported by the application — import the print stylesheet exactly once so it is included in the Vite bundle.
 - Modify: the existing CV component styles only when required by the print rules — keep screen rules unchanged and use print overrides rather than rewriting the interactive design.
 - Create or modify: the existing test location for [`AppShell`](../../../src/components/AppShell.tsx:12), if present — assert print-targeting hooks and content preservation using the project’s current Vitest/testing-library conventions.
@@ -104,8 +104,8 @@
 ### Task 2: Implement the A4 monochrome print stylesheet
 
 **Files:**
-- Create or modify: [`src/styles/print.css`](../../../src/styles/print.css:1)
-- Modify: existing stylesheet entry point to import [`print.css`](../../src/styles/print.css:1)
+- Create or modify: [`src/styles/global.css`](../../../src/styles/global.css:1)
+- Modify: existing stylesheet entry point to import [`global.css`](../../src/styles/global.css:1)
 
 **Interfaces:**
 - Consumes: selectors added in Task 1 and the existing component class names.
@@ -173,7 +173,7 @@
 - [ ] **Step 10: Commit the print CSS**
 
   ```bash
-  git add src/styles/print.css src
+  git add src/styles/global.css src
   git commit -m "feat: add A4 monochrome print layout"
   ```
 

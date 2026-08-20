@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { executeTerminalCommand } from "./commands";
+import { profile } from "../../data/profile";
 
 describe("executeTerminalCommand", () => {
   it.each([
@@ -32,5 +33,22 @@ describe("executeTerminalCommand", () => {
     expect(result.type === "output" && result.lines).toEqual(
       expect.arrayContaining([expect.stringMatching(/unknown command/i)]),
     );
+  });
+
+  it("whoami derives identity from canonical profile data", () => {
+    const result = executeTerminalCommand("whoami");
+    expect(result).toMatchObject({
+      type: "output",
+      lines: [profile.identity.name, profile.identity.role],
+    });
+  });
+
+  it("about derives text from canonical profile data", () => {
+    const result = executeTerminalCommand("about");
+    expect(result).toMatchObject({
+      type: "scroll",
+      sectionId: "summary",
+      lines: [`${profile.identity.name} — ${profile.identity.role}.`],
+    });
   });
 });

@@ -37,8 +37,8 @@ Use one shared semantic document and a dedicated print stylesheet rather than re
 
 A new print stylesheet will define:
 
-- An [`@page`](../../../src/styles/print.css:1) A4 portrait rule with predictable, conservative physical margins.
-- [`@media print`](../../../src/styles/print.css:1) overrides that normalize the page to white paper, black text, and grayscale-safe thin rules.
+- An [`@page`](../../../src/styles/global.css:1) A4 portrait rule with predictable, conservative physical margins.
+- [`@media print`](../../../src/styles/global.css:1) overrides that normalize the page to white paper, black text, and grayscale-safe thin rules.
 - Removal of backgrounds, shadows, gradients, coloured accents, fixed viewport sizing, and decorative effects.
 - A single-column document flow with a width calculated from the A4 content area rather than desktop layout constraints.
 - Compact but readable type sizes, line-height, gaps, and list indentation.

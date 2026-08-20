@@ -48,32 +48,33 @@ export const profile: Profile = {
     role: "Secondary School Student | Incoming Data Science Student",
     aspiration: "Aspiring Technology Operations & Cybersecurity Professional",
     summary:
-      "Secondary-school student preparing to begin a Higher Diploma in Data Science in September 2026, with practical experience in Python automation, application development, networking, and web delivery. Demonstrated cybersecurity capability through Splunk Boss of the SOC (BOTS), an industry-practitioner competition where I analyzed raw event logs to solve blue-team capture-the-flag (CTF) challenges in a simulated SIEM environment. Interested in building reliable internal utilities and automation-focused tools for IT operations and problem-solving.",
+      "Information Technology and Data Science student combining practical experience in Python automation, web development, and cybersecurity through the CLAP-TECH pathway and Splunk BOTS competition. Focused on building internal utilities, data analysis applications, and automation-focused solutions for IT operations and problem-solving.",
   },
   contact: [
     { label: "+852 5511 7745", href: "tel:+85255117745", kind: "phone" },
     { label: "edward.hl.chan@gmail.com", href: "mailto:edward.hl.chan@gmail.com", kind: "email" },
-    { label: "linkedin.com/in/edward-chan-hl", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
+    // { label: "linkedin.com/in/edward-chan-hl", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
     { label: "github.com/edwardhlchan", href: "https://github.com/edwardhlchan", kind: "github" },
   ],
   education: [
     {
       title: "Higher Diploma in Data Science (CLAP-TECH Pathway)",
-      provider: "Hong Kong Baptist University — School of Continuing Education",
+      provider: "Hong Kong Baptist University",
       dates: "Expected start: 2026/09",
       details: [
-        "CLAP-TECH is a secondary-to-tertiary integrated pathway offered through Hong Kong Baptist University and co-designed by IBM.",
-        "The pathway connects Applied Learning with a planned HKBU Higher Diploma route and practical work in data analytics, AI applications, programming, and IT operations.",
+        "CLAP-TECH: Secondary-to-tertiary integrated pathway offered by Hong Kong Baptist University and co-designed by IBM",
+        "Focus on industry-driven data analytics, AI applications, and practical programming to solve real-world operational challenges",
       ],
     },
     {
       title: "Applied Learning (ApL) in Tech Basics (CLAP-TECH Pathway)",
-      provider: "Hong Kong Baptist University — School of Continuing Education",
+      provider: "Hong Kong Baptist University",
       dates: "2024 – 2025",
       details: [
-        "Top performer with Grade: Attained with Distinction II, awarded to the top 4% of students.",
-        "Built practical IT competencies through the CLAP-TECH pathway, including Python development, web application architecture, cybersecurity operations, and IT project management.",
-        "Selected for industry immersion at Equinix Data Center and ranked Top 10 in Hong Kong in Splunk BOTS.",
+        "Attained with Distinction II, the highest Applied Learning grade, awarded to the top 4% of students",
+        "Core training: Python development, web application architecture, cybersecurity operations, and IT project management",
+        "Selected for Equinix Data Center industry immersion, gaining hands-on exposure to enterprise-grade IT infrastructure",
+        "Participated in Splunk Boss of the SOC (BOTS) 2025, an industry-practitioner cybersecurity competition, applying data analysis techniques to interpret security event logs",
       ],
     },
     {
@@ -81,7 +82,7 @@ export const profile: Profile = {
       provider: "Lai King Catholic Secondary School",
       dates: "2020 – 2026",
       details: [
-        "Achieved Level 5 in Information & Communication Technology (ICT) and Level 5 in English Language.",
+        "Academic Strengths: Achieved top-tier results in analytical and language subjects, securing Level 5 in Information & Communication Technology (ICT) and Level 5 in English Language",
       ],
     },
   ],
@@ -90,41 +91,33 @@ export const profile: Profile = {
       title: "Full-Stack Web Apps & Digital Portfolio",
       technologies: ["Cloudflare Workers", "D1", "JavaScript"],
       details: [
-        "Developed a full-stack web app pairing a JavaScript frontend with a Cloudflare Workers API and a D1 (SQLite) database for score submission, aggregate statistics, and percentile ranking.",
-        "Engineered and deployed a responsive, cloud-hosted digital CV with a scriptable terminal interface.",
+        "Built web application pairing JavaScript frontend with Cloudflare Workers API and D1 SQLite database",
+        "Implemented score submission, aggregate statistics, and percentile ranking calculations",
+        "Developed responsive CV with scriptable terminal interface",
       ],
       links: [
-        { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
         { label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/" },
         { label: "Number Ninja", href: "https://www.mzki.moe/projects/maf/" },
-        { label: "Custom-domain portfolio (URL unavailable)" },
+        { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
+        // { label: "GitHub", href: "https://github.com/edwardhlchan" },
       ],
     },
     {
       title: "Security Log Analysis & Incident Response Simulation",
       technologies: ["Splunk", "SIEM", "CTF"],
       details: [
-        "Analyzed raw event logs in a competitive SIEM environment to investigate simulated enterprise security incidents.",
-        "Solved blue-team CTF challenges by querying logs to track threat actor activities and identify indicators of compromise.",
-        "Ranked as a Top 10 Finalist in Splunk Boss of the SOC (BOTS) 2025.",
+        "Analyzed raw event logs in a competitive SIEM environment to investigate simulated enterprise security incidents",
+        "Solved blue-team CTF challenges by querying logs to track threat actor activities and identify indicators of compromise",
+        "Participated in Splunk Boss of the SOC (BOTS) 2025 and ranked Top 10, an industry-practitioner cybersecurity competition in Hong Kong",
       ],
       links: [],
     },
     {
       title: "Automated Data Parsing Desktop Application",
-      technologies: ["Python", "PyQt", "Pandas"],
+      technologies: ["Python", "PyQt"],
       details: [
-        "Built a PyQt desktop application to automate data parsing, extraction, filtering, and formatting.",
-        "Applied Pandas and Python scripting to reduce repetitive manual processing steps.",
-      ],
-      links: [],
-    },
-    {
-      title: "Real-Time Input-Translation Engine",
-      technologies: ["C#"],
-      details: [
-        "Developed an engine to remap and emulate controller input signals in real time.",
-        "Applied AI-assisted development workflows to support code optimization and logic design.",
+        "Built PyQt desktop application to automate data parsing, extraction, filtering, and formatting",
+        "Applied Python scripting to reduce repetitive manual processing steps",
       ],
       links: [],
     },
@@ -137,6 +130,6 @@ export const profile: Profile = {
   ],
   achievements: [
     "Top 10 Finalist – Splunk Boss of the SOC (BOTS) Hong Kong (2025)",
-    "Distinction Award – Canadian Computing Competition (2025)",
+    "Certificate of Distinction – Canadian Computing Competition (Junior Division) (2025)",
   ],
 };

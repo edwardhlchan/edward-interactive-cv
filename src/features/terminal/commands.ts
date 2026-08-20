@@ -1,4 +1,5 @@
 import type { SectionId } from "../../components/SectionNav";
+import { profile } from "../../data/profile";
 
 export type TerminalEffect =
   | { type: "output"; lines: string[] }
@@ -29,9 +30,9 @@ export function executeTerminalCommand(input: string): TerminalEffect {
     case "help":
       return { type: "output", lines: helpLines };
     case "whoami":
-      return { type: "output", lines: ["Edward Chan", "Information Technology Student"] };
+      return { type: "output", lines: [profile.identity.name, profile.identity.role] };
     case "about":
-      return { type: "scroll", sectionId: "summary", lines: ["Edward Chan — Information Technology Student."] };
+      return { type: "scroll", sectionId: "summary", lines: [`${profile.identity.name} — ${profile.identity.role}.`] };
     case "projects":
       return { type: "scroll", sectionId: "projects", lines: ["Opening Key Projects."] };
     case "skills":
