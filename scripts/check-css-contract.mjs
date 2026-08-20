@@ -18,6 +18,13 @@ const required = [
   "page-break-inside: avoid",
   "background: #fff",
   "color: #000",
+  ".site-chrome",
+  ".navigation-rail",
+  ".top-actions",
+  ".terminal-panel",
+  "display: none !important",
+  "max-width: none",
+  "overflow: visible",
 ];
 const missing = required.filter((token) => !css.includes(token));
 if (missing.length > 0) {

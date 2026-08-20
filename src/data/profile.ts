@@ -13,7 +13,7 @@ export type EducationEntry = {
 
 export type ProjectLink = {
   label: string;
-  href: string;
+  href?: string;
 };
 
 export type Project = {
@@ -45,16 +45,16 @@ export type Profile = {
 export const profile: Profile = {
   identity: {
     name: "Edward Chan",
-    role: "Information Technology Student",
+    role: "Secondary School Student | Incoming Data Science Student",
     aspiration: "Aspiring Technology Operations & Cybersecurity Professional",
     summary:
-      "Information Technology and Data Science student with a strong foundation in Python automation, application development, and networking. Demonstrated practical capability in cybersecurity through Splunk Boss of the SOC (BOTS), an industry-practitioner competition (Top 10 Finalist, Hong Kong), where I analyzed raw event logs to solve blue-team capture-the-flag (CTF) challenges in a simulated SIEM environment. Passionate about building internal utilities, PyQt data-parsing applications, and full-stack web applications to bring an automation-focused mindset to IT operations and problem-solving.",
+      "Secondary-school student preparing to begin a Higher Diploma in Data Science in September 2026, with practical experience in Python automation, application development, networking, and web delivery. Demonstrated cybersecurity capability through Splunk Boss of the SOC (BOTS), an industry-practitioner competition where I analyzed raw event logs to solve blue-team capture-the-flag (CTF) challenges in a simulated SIEM environment. Interested in building reliable internal utilities and automation-focused tools for IT operations and problem-solving.",
   },
   contact: [
     { label: "+852 5511 7745", href: "tel:+85255117745", kind: "phone" },
     { label: "edward.hl.chan@gmail.com", href: "mailto:edward.hl.chan@gmail.com", kind: "email" },
-    // { label: "https://www.linkedin.com/in/edward-chan-hl/", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
-    { label: "https://github.com/edwardhlchan", href: "https://github.com/edwardhlchan", kind: "github" },
+    { label: "linkedin.com/in/edward-chan-hl", href: "https://www.linkedin.com/in/edward-chan-hl/", kind: "linkedin" },
+    { label: "github.com/edwardhlchan", href: "https://github.com/edwardhlchan", kind: "github" },
   ],
   education: [
     {
@@ -62,8 +62,8 @@ export const profile: Profile = {
       provider: "Hong Kong Baptist University — School of Continuing Education",
       dates: "Expected start: 2026/09",
       details: [
-        "A Jockey Club Multiple Pathways Initiative offered by Hong Kong Baptist University and co-designed by IBM.",
-        "Focus on industry-driven data analytics, AI applications, and practical programming to solve real-world operational challenges.",
+        "CLAP-TECH is a secondary-to-tertiary integrated pathway offered through Hong Kong Baptist University and co-designed by IBM.",
+        "The pathway connects Applied Learning with a planned HKBU Higher Diploma route and practical work in data analytics, AI applications, programming, and IT operations.",
       ],
     },
     {
@@ -72,7 +72,7 @@ export const profile: Profile = {
       dates: "2024 – 2025",
       details: [
         "Top performer with Grade: Attained with Distinction II, awarded to the top 4% of students.",
-        "Developed new-collar IT competencies covering Python development, web application architecture, cybersecurity operations, and IT project management.",
+        "Built practical IT competencies through the CLAP-TECH pathway, including Python development, web application architecture, cybersecurity operations, and IT project management.",
         "Selected for industry immersion at Equinix Data Center and ranked Top 10 in Hong Kong in Splunk BOTS.",
       ],
     },
@@ -87,20 +87,21 @@ export const profile: Profile = {
   ],
   projects: [
     {
-      title: "Full-Stack Web Apps & Digital Portfolio | Cloudflare Workers, D1, JS",
+      title: "Full-Stack Web Apps & Digital Portfolio",
       technologies: ["Cloudflare Workers", "D1", "JavaScript"],
       details: [
         "Developed a full-stack web app pairing a JavaScript frontend with a Cloudflare Workers API and a D1 (SQLite) database for score submission, aggregate statistics, and percentile ranking.",
         "Engineered and deployed a responsive, cloud-hosted digital CV with a scriptable terminal interface.",
       ],
       links: [
-        // { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
+        { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
         { label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/" },
-        { label: "Math Rush", href: "https://www.mzki.moe/projects/maf/" },
+        { label: "Number Ninja", href: "https://www.mzki.moe/projects/maf/" },
+        { label: "Custom-domain portfolio (URL unavailable)" },
       ],
     },
     {
-      title: "Security Log Analysis & Incident Response Simulation | Splunk BOTS",
+      title: "Security Log Analysis & Incident Response Simulation",
       technologies: ["Splunk", "SIEM", "CTF"],
       details: [
         "Analyzed raw event logs in a competitive SIEM environment to investigate simulated enterprise security incidents.",
@@ -110,7 +111,7 @@ export const profile: Profile = {
       links: [],
     },
     {
-      title: "Automated Data Parsing Desktop Application | Python, PyQt",
+      title: "Automated Data Parsing Desktop Application",
       technologies: ["Python", "PyQt", "Pandas"],
       details: [
         "Built a PyQt desktop application to automate data parsing, extraction, filtering, and formatting.",
@@ -119,7 +120,7 @@ export const profile: Profile = {
       links: [],
     },
     {
-      title: "Real-Time Input-Translation Engine | C#",
+      title: "Real-Time Input-Translation Engine",
       technologies: ["C#"],
       details: [
         "Developed an engine to remap and emulate controller input signals in real time.",

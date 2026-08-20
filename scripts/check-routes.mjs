@@ -11,34 +11,40 @@ function requestText(path, headers = {}) {
       let body = "";
       response.setEncoding("utf8");
       response.on("data", (chunk) => { body += chunk; });
-      response.on("end", () => resolve({ status: response.statusCode ?? 0, body }));
+      response.on("end", () => resolve({ status: response.statusCode ?? 0, body, contentType: response.headers["content-type"] ?? "" }));
     });
+    request.setTimeout(5000, () => request.destroy(new Error("request timed out")));
     request.on("error", reject);
     request.end();
   });
 }
 
-async function fetchText(path, headers = {}) {
-  const result = await requestText(path, headers);
-  if (result.status < 200 || result.status >= 300) throw new Error(`${path} returned ${result.status}`);
-  return result.body;
-}
-
-for (const path of ["/", "/cv"]) {
-  const text = await fetchText(path, {
-    Accept: "text/html",
-    "Sec-Fetch-Mode": "navigate",
-  });
-  if (!text.includes("Edward Chan") || !text.includes("Interactive CV")) {
-    throw new Error(`${path} did not return the interactive CV application`);
+function assertResponse(path, result, { status, identity, absent = [] }) {
+  if (!status.includes(result.status)) throw new Error(`${path} returned HTTP ${result.status}; expected ${status.join(" or ")}`);
+  if (identity && (!result.contentType.includes("text/html") || !result.body.includes(identity))) {
+    throw new Error(`${path} returned HTTP ${result.status} but not the expected response identity: ${identity}`);
   }
+  for (const value of absent) if (result.body.includes(value)) throw new Error(`${path} unexpectedly contains ${value}`);
 }
 
-for (const path of ["/dse", "/dse-calculator/"]) {
-  const result = await requestText(path, { Accept: "text/html" });
-  if (result.body.includes("DSE Score Calculator") || result.body.includes("Percentile Ranking")) {
-    throw new Error(`${path} unexpectedly returned a DSE calculator application`);
+try {
+  for (const path of ["/", "/cv"]) {
+    const result = await requestText(path, { Accept: "text/html", "Sec-Fetch-Mode": "navigate" });
+    assertResponse(path, result, { status: [200], identity: "Edward Chan" });
+    if (!result.body.includes("Interactive CV")) throw new Error(`${path} is missing the interactive CV identity`);
   }
-}
 
-console.log(`route verification passed for ${baseUrl}`);
+  for (const path of ["/dse", "/dse-calculator/"]) {
+    const result = await requestText(path, { Accept: "text/html" });
+    assertResponse(path, result, {
+      status: [404],
+      absent: ["DSE Score Calculator", "Percentile Ranking", "Edward Chan"],
+    });
+  }
+
+  console.log(`route verification passed for ${baseUrl}`);
+} catch (error) {
+  console.error(`Route verification failed for ${baseUrl}: ${error instanceof Error ? error.message : error}`);
+  console.error("Required local server or authorized deployment is unavailable, or returned an unexpected response.");
+  process.exit(1);
+}

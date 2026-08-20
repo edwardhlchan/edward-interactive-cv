@@ -14,7 +14,10 @@
     "deploy": "npm run build && wrangler deploy",
     "check:css": "node scripts/check-css-contract.mjs",
     "check:content": "node scripts/verify-content.mjs",
-    "check:routes": "node scripts/check-routes.mjs"
+    "check:config": "node scripts/check-config-contract.mjs",
+    "check:routes": "node scripts/check-routes.mjs",
+    "check:browser": "node scripts/check-browser-preflight.mjs",
+    "check:preflight": "node scripts/check-preflight.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

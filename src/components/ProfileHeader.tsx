@@ -12,7 +12,7 @@ export function ProfileHeader({ profile }: { profile: Profile }) {
         <div>
           <h1>{profile.identity.name}</h1>
           <p className="profile-header__role">{profile.identity.role}</p>
-          {/* <p className="profile-header__aspiration">{profile.identity.aspiration}</p> */}
+          <p className="profile-header__aspiration">{profile.identity.aspiration}</p>
         </div>
       </div>
       <address className="contact-links" id="contact-links" tabIndex={-1}>
@@ -24,6 +24,7 @@ export function ProfileHeader({ profile }: { profile: Profile }) {
             rel={contact.kind === "linkedin" || contact.kind === "github" ? "noreferrer" : undefined}
           >
             <span className="contact-links__kind">{contact.kind}</span>
+            {" "}
             {contact.label}
           </a>
         ))}

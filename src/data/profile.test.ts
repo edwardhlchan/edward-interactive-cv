@@ -4,6 +4,8 @@ import { profile } from "./profile";
 describe("profile", () => {
   it("contains the current public identity and contact destinations", () => {
     expect(profile.identity.name).toBe("Edward Chan");
+    expect(profile.identity.role).toBe("Secondary School Student | Incoming Data Science Student");
+    expect(profile.identity.aspiration).toBe("Aspiring Technology Operations & Cybersecurity Professional");
     expect(profile.contact).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ href: "tel:+85255117745" }),

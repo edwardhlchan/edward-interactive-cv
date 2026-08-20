@@ -62,14 +62,25 @@ The Worker is available at `http://localhost:8787`.
 
 ## Validation
 
-Run the build and static validation checks:
+Run the local preflight suite before accepting a CV change:
 
 ```bash
 npm run build
-npm run check:css
-npm run check:content
-npm run test:run
+npm run check:preflight
 ```
+
+`check:preflight` is an aggregate runner that executes every mandatory local verification check in sequence and fails immediately when any check fails. The suite includes:
+
+1. **Static content verification** ([`check:content`](scripts/verify-content.mjs)): Verifies declared evidence-backed profile data against the explicit approved manifest. Does not verify URL liveness or network accessibility.
+2. **CSS contract verification** ([`check:css`](scripts/check-css-contract.mjs)): Verifies print-mode CSS contracts (A4 portrait, black-and-white output, interactive UI hidden, education/project page-break protection).
+3. **Configuration contract verification** ([`check:config`](scripts/check-config-contract.mjs)): Verifies Vite build output, Wrangler static-asset binding, Worker fetch handler, and npm script exposure.
+4. **Unit and component tests** ([`test:run`](package.json)): Runs all Vitest tests for CV layout, rendered DOM, accessibility, terminal commands, and contracts.
+5. **Route verification** ([`check:routes`](scripts/check-routes.mjs)): Verifies live HTTP routes return expected status codes and response identity. Requires the local Worker running on port 8787 or an authorized deployed environment.
+6. **Browser preflight** ([`check:browser`](scripts/check-browser-preflight.mjs)): Verifies rendered DOM content, approved href destinations, print-mode visibility/hidden state, and basic overflow/clipping using Playwright. Requires an approved Playwright package and a running local app or deployed environment.
+
+If route or browser verification is unavailable (missing server, missing browser automation, or network failure), `check:preflight` reports the blocker and exits with a clear failure status. It never reports an unavailable check as successful.
+
+### Running individual checks
 
 Route validation requires the local Worker to be running on port 8787. In one terminal, run:
 
@@ -82,6 +93,28 @@ Then, in another terminal, run:
 ```bash
 npm run check:routes
 ```
+
+To check a deployed environment explicitly, provide its base URL only when network access is available and the deployment is authorized for verification:
+
+```bash
+node scripts/check-routes.mjs https://your-authorized-cv-domain.example
+```
+
+If an approved Playwright package is installed later, start the local app and run the browser-level rendered-content check:
+
+```bash
+npm run check:browser -- http://localhost:5173
+```
+
+Until an approved Playwright package is installed, [`scripts/check-browser-preflight.mjs`](scripts/check-browser-preflight.mjs) exits with a clear notice instead of reporting success without verifying.
+
+### Manual verification items
+
+The local preflight suite does not verify:
+
+- **Real URL ownership and network liveness**: `check:content` verifies that declared URLs are present in the profile data; it does not make HTTP requests to verify that the URLs resolve or that the owner controls the destination.
+- **PDF output quality**: `check:browser` verifies print-mode DOM state (visibility, hidden interactive UI, overflow); it does not generate or inspect the final PDF bytes. Open the portfolio, use the browser print command, and manually inspect the PDF for correct page breaks, selectable text, and black-on-white rendering.
+- **External link validity**: The suite does not verify that contact or project links remain accessible over time or that external services remain online.
 
 For test watch mode:
 

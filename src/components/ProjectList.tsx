@@ -15,9 +15,17 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.details.map((detail) => <li key={detail}>{detail}</li>)}
         </ul>
         {project.links.length > 0 && (
-          <div className="project-links">
+          <div className="project-links" aria-label={`${project.title} links`}>
             {project.links.map((link) => (
-              <a href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>
+              link.href ? (
+                <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
+                  {link.label} <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <span className="project-link-unavailable" key={link.label}>
+                  {link.label}
+                </span>
+              )
             ))}
           </div>
         )}
