@@ -2,8 +2,7 @@ import type { Project } from "../data/profile";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="project-card print-project-entry">
-      <div className="project-card__marker" aria-hidden="true">●</div>
+    <article className="project-card print-project-entry" data-evidence-category="project">
       <div className="project-card__content">
         <div className="project-card__heading">
           <h3>{project.title}</h3>

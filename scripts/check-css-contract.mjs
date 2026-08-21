@@ -11,6 +11,7 @@ const required = [
   "@media print",
   "@page",
   "size: A4 portrait",
+  "margin: 15mm",
   ".print-only-screen",
   ".print-education-entry",
   ".print-project-entry",

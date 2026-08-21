@@ -4,7 +4,7 @@ export function EducationList({ entries }: { entries: EducationEntry[] }) {
   return (
     <div className="education-list">
       {entries.map((entry) => (
-        <article className="education-entry print-education-entry" key={`${entry.title}-${entry.dates}`}>
+        <article className="education-entry print-education-entry" key={`${entry.title}-${entry.dates}`} data-evidence-category="education">
           <div className="entry-meta">
             <span className="entry-meta__date">{entry.dates}</span>
             <span>{entry.provider}</span>

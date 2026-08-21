@@ -39,6 +39,8 @@ body {
 a { color: inherit; }
 button, input { font: inherit; }
 :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; }
+/* Main receives programmatic route focus; keep that landmark focus invisible. */
+#main-content:focus { outline: none; }
 
 .skip-link { position: fixed; top: 0.75rem; left: 0.75rem; z-index: 10; transform: translateY(-200%); background: var(--color-accent); color: var(--color-ink); padding: 0.5rem 0.75rem; font-weight: 700; }
 .skip-link:focus { transform: translateY(0); }
@@ -111,6 +113,34 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
 .site-footer { padding-top: var(--space-4); color: var(--color-muted); }
 .site-footer__meta { display: flex; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-4); }
 
+/* CV Route Styles */
+.cv-route { max-width: 800px; margin: 0 auto; min-height: 100vh; background: var(--color-paper); padding: var(--space-6) clamp(1.25rem, 5vw, 3rem); }
+.cv-header { padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-rule); }
+.cv-header h1 { max-width: 10ch; margin: 0; font-size: clamp(2rem, 7vw, 3rem); font-weight: 700; letter-spacing: -0.045em; line-height: 1.1; }
+.cv-header__role { margin: var(--space-3) 0 0; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; letter-spacing: -0.02em; }
+.cv-header__aspiration { margin: 0.4rem 0 0; color: var(--color-muted); }
+.cv-header__contact { display: flex; flex-wrap: wrap; gap: 0.55rem 1rem; margin: var(--space-4) 0 0; font-style: normal; }
+.cv-header__contact a { display: inline-flex; align-items: baseline; gap: 0.4rem; color: var(--color-ink); text-decoration-color: var(--color-accent-deep); text-decoration-thickness: 2px; text-underline-offset: 0.22em; }
+.contact-kind { color: var(--color-muted); font-family: "IBM Plex Mono", monospace; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.cv-summary { margin: 0; }
+.cv-summary p { max-width: 100%; margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.65; }
+.cv-footer { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-rule); color: var(--color-muted); }
+.cv-footer__content { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.cv-footer__demo-link { color: var(--color-ink); font-weight: 600; text-decoration-color: var(--color-accent-deep); text-decoration-thickness: 2px; text-underline-offset: 0.22em; }
+.cv-footer__meta { font-family: "IBM Plex Mono", monospace; font-size: var(--text-small); letter-spacing: 0.05em; text-transform: uppercase; }
+.print-hide { /* Will be hidden in print */ }
+
+/* Demo Route Styles */
+.demo-route { max-width: 1200px; margin: 0 auto; min-height: 100vh; background: var(--color-bg); padding: var(--space-4); }
+.demo-header { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-4); margin-bottom: var(--space-4); background: var(--color-surface); border: 1px solid #33443d; }
+.demo-header__back-link { color: var(--color-accent); text-decoration: none; font-weight: 600; }
+.demo-header__back-link:hover { text-decoration: underline; }
+.demo-header__title { margin: 0; color: var(--color-rail-text); font-size: 1.5rem; font-weight: 600; }
+.demo-route__content { max-width: 900px; margin: 0 auto; }
+
+/* Update project card for removed marker */
+.project-card { display: grid; grid-template-columns: 1fr; gap: 0; padding: var(--space-4); background: #ebe8dd; border-left: 3px solid var(--color-ink); }
+
 @media (max-width: 959px) {
   .layout-grid { grid-template-columns: 1fr; }
   .navigation-rail { position: static; height: auto; min-height: auto; padding: var(--space-3) clamp(1.25rem, 5vw, 5.5rem); flex-direction: row; align-items: center; border-right: 0; border-bottom: 1px solid #33443d; }
@@ -154,7 +184,7 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
 }
 @page {
   size: A4 portrait;
-  margin: 12mm 14mm;
+  margin: 15mm;
 }
 
 @media print {
@@ -197,14 +227,17 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
   .skip-link,
   .screen-only,
   .print-only-screen,
+  .print-hide,
   .terminal-panel,
-  .decorative-console {
+  .decorative-console,
+  .cv-footer {
     display: none !important;
   }
 
   .app-shell,
   .layout-grid,
-  .reading-column {
+  .reading-column,
+  .cv-route {
     display: block;
     width: auto;
     max-width: none;
@@ -214,7 +247,8 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     overflow: visible;
   }
 
-  .profile-header {
+  .profile-header,
+  .cv-header {
     padding-bottom: 0.7rem;
   }
 
@@ -270,6 +304,17 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     padding: 0.5rem 0;
   }
 
+  /* Keep the Education heading and separator on its new page. */
+  #skills {
+    border-bottom: 0;
+  }
+
+  #education {
+    break-before: page;
+    page-break-before: always;
+    border-top: 1px solid #777;
+  }
+
   .section-heading-row {
     margin-bottom: 0.5rem;
   }
@@ -285,9 +330,9 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     gap: 0.5rem;
   }
 
-  /* Hide technology tags in print - info already in title */
+  /* Keep technology tags visible in print for recruiter scanning */
   .tech-tags {
-    display: none;
+    display: flex;
   }
 
   .education-entry,
@@ -315,8 +360,8 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
   }
 
   .project-card {
-    grid-template-columns: 0.7rem 1fr;
-    gap: 0.45rem;
+    grid-template-columns: 1fr;
+    gap: 0;
     padding: 0.45rem 0 0.45rem 0.45rem;
     border-left: 1px solid #000;
   }
@@ -347,22 +392,18 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     text-decoration-thickness: 1px;
   }
 
-  /* Show URLs in print for hard-copy readability - only for abbreviated labels */
-  .project-links a[href]::after {
-    content: " (" attr(href) ")";
-    font-size: 8pt;
-    color: #555;
-    word-break: break-all;
-  }
+  /* Keep printed contact labels and project links single, readable lines. */
 
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 0;
     border-color: #777;
   }
 
   .skill-group {
     min-height: 0;
     padding: 0.7rem;
+    border-top: 1px solid #777;
     border-color: #777;
   }
 
