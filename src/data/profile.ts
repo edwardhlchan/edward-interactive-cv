@@ -99,6 +99,7 @@ export const profile: Profile = {
         { label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/" },
         { label: "Number Ninja", href: "https://www.mzki.moe/projects/maf/" },
         { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
+        { label: "Portfolio Page", href: "https://portfolio.despacito777x.workers.dev/projects/"},
         // { label: "GitHub", href: "https://github.com/edwardhlchan" },
       ],
     },
