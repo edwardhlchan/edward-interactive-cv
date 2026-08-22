@@ -96,8 +96,8 @@ export const profile: Profile = {
         "Developed responsive CV with scriptable terminal interface",
       ],
       links: [
-        { label: "DSE Score Calculator", href: "https://www.mzki.moe/projects/dma/" },
-        { label: "Number Ninja", href: "https://www.mzki.moe/projects/maf/" },
+        { label: "DSE Score Calculator", href: "https://portfolio.despacito777x.workers.dev/projects/dma/" },
+        { label: "Number Ninja", href: "https://portfolio.despacito777x.workers.dev/projects/maf/" },
         { label: "Interactive CV", href: "https://edward-interactive-cv.despacito777x.workers.dev/" },
         { label: "Portfolio Page", href: "https://portfolio.despacito777x.workers.dev/projects/"},
         // { label: "GitHub", href: "https://github.com/edwardhlchan" },

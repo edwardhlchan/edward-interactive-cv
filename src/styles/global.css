@@ -60,8 +60,8 @@ button, input { font: inherit; }
 .rail-note__line { display: block; width: 2.5rem; margin: var(--space-4) 0; border-top: 2px solid var(--color-accent); }
 .reading-column { position: relative; background: var(--color-paper); padding: var(--space-6) clamp(1.25rem, 5vw, 5.5rem); }
 .top-actions { position: absolute; top: var(--space-4); right: clamp(1.25rem, 5vw, 5.5rem); }
-.print-controls { border: 1px solid var(--color-ink); color: var(--color-ink); background: transparent; padding: 0.5rem 0.75rem; cursor: pointer; font: 600 var(--text-small)/1 "IBM Plex Mono", monospace; letter-spacing: 0.04em; text-transform: uppercase; }
-.print-controls:hover { background: var(--color-ink); color: var(--color-paper); }
+.print-controls { border: 1px solid var(--color-accent); color: var(--color-accent); background: transparent; padding: 0.5rem 0.75rem; cursor: pointer; font: 600 var(--text-small)/1 "IBM Plex Mono", monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+.print-controls:hover { background: var(--color-accent); color: var(--color-paper); }
 .profile-header { padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-rule); }
 .profile-header__topline { display: flex; justify-content: space-between; gap: var(--space-3); padding-right: 7rem; color: var(--color-muted); }
 .availability { color: var(--color-ink); font: 500 var(--text-small)/1.2 "IBM Plex Mono", monospace; text-transform: uppercase; white-space: nowrap; }
@@ -123,6 +123,7 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
 .cv-header__contact a { display: inline-flex; align-items: baseline; gap: 0.4rem; color: var(--color-ink); text-decoration-color: var(--color-accent-deep); text-decoration-thickness: 2px; text-underline-offset: 0.22em; }
 .contact-kind { color: var(--color-muted); font-family: "IBM Plex Mono", monospace; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; }
 .cv-summary { margin: 0; }
+.project-link__print-url { display: none; }
 .cv-summary p { max-width: 100%; margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.65; }
 .cv-footer { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-rule); color: var(--color-muted); }
 .cv-footer__content { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
@@ -272,6 +273,20 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     color: #000;
   }
 
+  .project-link__print-url {
+    display: inline;
+    color: #000;
+    text-decoration-line: underline;
+    text-decoration-color: #000;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  .contact-links a::after,
+  .cv-header__contact a::after {
+    content: none;
+  }
+
   h1 {
     max-width: none;
     font-size: 30pt;
@@ -385,18 +400,26 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     margin-top: 0.45rem;
   }
 
+  .project-link__print-url,
   .project-links a,
-  .contact-links a {
+  .contact-links a,
+  .cv-header__contact a {
     color: #000;
+    text-decoration-line: underline;
     text-decoration-color: #000;
     text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
   }
 
   /* Keep printed contact labels and project links single, readable lines. */
+  .project-link__print-url {
+    display: inline;
+  }
 
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     border-top: 0;
+    border-left: 0;
     border-color: #777;
   }
 
@@ -405,6 +428,10 @@ h3 { margin: 0; font-size: 1.05rem; line-height: 1.35; }
     padding: 0.7rem;
     border-top: 1px solid #777;
     border-color: #777;
+  }
+
+  .skill-group:nth-child(odd) {
+    border-left: 1px solid #777;
   }
 
   .achievement-list {

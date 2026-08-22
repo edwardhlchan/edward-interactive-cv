@@ -19,6 +19,7 @@ export function ProjectCard({ project }: { project: Project }) {
               link.href ? (
                 <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
                   {link.label} <span aria-hidden="true">↗</span>
+                  <span className="project-link__print-url"> ({link.href})</span>
                 </a>
               ) : (
                 <span className="project-link-unavailable" key={link.label}>
